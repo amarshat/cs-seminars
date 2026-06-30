@@ -25,14 +25,14 @@ This seminar, like every seminar here, works through four questions:
 
 ## Chapters
 
-1. [The problem](01-the-problem.md) — A switch that cannot stop, and why testing cannot save you.
-2. [Concurrency-oriented programming](02-concurrency-oriented-programming.md) — Processes as the unit of the world. Share nothing. Copy messages.
-3. [Let it crash](03-let-it-crash.md) — Why defensive programming makes things worse, and what to do instead.
-4. [Supervision trees](04-supervision-trees.md) — Putting recovery somewhere it can actually work: above the thing that failed.
-5. [Links and monitors](05-links-and-monitors.md) — Turning a crash into a message another process can act on.
-6. [Armstrong's rules](06-armstrongs-rules.md) — The six requirements he distills, read as a checklist for any platform.
-7. [Modern echoes](07-modern-echoes.md) — Kubernetes, systemd, Akka, Orleans, Temporal, and what they got right and wrong.
-8. [Discussion and further reading](08-discussion-and-reading.md) — Questions to argue about, and where to go next.
+1. [The problem](01-the-problem.md). A switch that cannot stop, and why testing cannot save you.
+2. [Concurrency-oriented programming](02-concurrency-oriented-programming.md). Processes as the unit of the world. Share nothing. Copy messages.
+3. [Let it crash](03-let-it-crash.md). Why defensive programming makes things worse, and what to do instead.
+4. [Supervision trees](04-supervision-trees.md). Putting recovery somewhere it can actually work: above the thing that failed.
+5. [Links and monitors](05-links-and-monitors.md). Turning a crash into a message another process can act on.
+6. [Armstrong's rules](06-armstrongs-rules.md). The six requirements he distills, read as a checklist for any platform.
+7. [Modern echoes](07-modern-echoes.md). Kubernetes, systemd, Akka, Orleans, Temporal, and what they got right and wrong.
+8. [Discussion and further reading](08-discussion-and-reading.md). Questions to argue about, and where to go next.
 
 ## A note on the source
 

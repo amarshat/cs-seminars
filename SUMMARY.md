@@ -2,7 +2,7 @@
 
 - [CS-Seminars](README.md)
 
-## 01. Joe Armstrong — Failure-Oriented Architecture
+## 01. Joe Armstrong: Failure-Oriented Architecture
 
 - [Seminar overview](01-joe-armstrong-failure-oriented-architecture/README.md)
 - [1. The problem](01-joe-armstrong-failure-oriented-architecture/01-the-problem.md)
