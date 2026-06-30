@@ -45,7 +45,7 @@ Start with the source. It is more readable than its reputation suggests.
 This seminar kept running into limits it could name but not resolve, and those limits are the next readings.
 
 - The processes Armstrong isolates are close cousins of **Carl Hewitt's actors**, a formal model Erlang's designers reached the same destination as without drawing on it. That independent convergence is the subject of the next seminar in this series.
-- The dead-versus-unreachable impossibility that haunts chapter 5 is **Leslie Lamport's** territory: ordering, logical clocks, and eventually consensus.
+- The dead-versus-unreachable impossibility that haunts chapter 5 is what motivates **Leslie Lamport's** territory: ordering, logical clocks, and eventually consensus.
 - The split-brain risk in restart-after-partition is what **Liskov and Castro** confront head-on when nodes can be not just broken but malicious.
 - And R6, stable storage, the durability Armstrong leans on but does not build, is where **Jim Gray's** transaction concept takes over.
 
