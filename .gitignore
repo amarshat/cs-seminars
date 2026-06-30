@@ -1,0 +1,8 @@
+# Source-of-truth planning notes. Never published.
+ignore/
+
+# OS and editor cruft
+.DS_Store
+.idea/
+.vscode/
+*.swp
