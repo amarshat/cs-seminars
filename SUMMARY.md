@@ -13,3 +13,14 @@
 - [6. Armstrong's rules](01-joe-armstrong-failure-oriented-architecture/06-armstrongs-rules.md)
 - [7. Modern echoes](01-joe-armstrong-failure-oriented-architecture/07-modern-echoes.md)
 - [8. Discussion and further reading](01-joe-armstrong-failure-oriented-architecture/08-discussion-and-reading.md)
+
+## 02. Carl Hewitt: The Actor Model
+
+- [Seminar overview](02-carl-hewitt-the-actor-model/README.md)
+- [1. Knowledge, not reliability](02-carl-hewitt-the-actor-model/01-the-problem.md)
+- [2. One kind of object](02-carl-hewitt-the-actor-model/02-one-kind-of-object.md)
+- [3. The message is the only move](02-carl-hewitt-the-actor-model/03-the-only-move.md)
+- [4. No clock, only order](02-carl-hewitt-the-actor-model/04-no-clock-only-order.md)
+- [5. Behavior, not state](02-carl-hewitt-the-actor-model/05-behavior-not-state.md)
+- [6. What survived, what got replaced](02-carl-hewitt-the-actor-model/06-what-survived.md)
+- [7. Discussion and further reading](02-carl-hewitt-the-actor-model/07-discussion-and-reading.md)

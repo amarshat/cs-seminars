@@ -48,6 +48,7 @@ CS-Seminars reads the classics as answers to those questions, then checks the an
 | # | Author | Reading | Theme |
 |---|--------|---------|-------|
 | 01 | Joe Armstrong | *Making Reliable Distributed Systems in the Presence of Software Errors* | Failure-oriented architecture |
+| 02 | Carl Hewitt | *A Universal Modular ACTOR Formalism for Artificial Intelligence* | The actor model |
 
 More seminars are planned. They get added to this index as each one clears review.
 
