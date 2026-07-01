@@ -24,3 +24,14 @@
 - [5. Behavior, not state](02-carl-hewitt-the-actor-model/05-behavior-not-state.md)
 - [6. What survived, what got replaced](02-carl-hewitt-the-actor-model/06-what-survived.md)
 - [7. Discussion and further reading](02-carl-hewitt-the-actor-model/07-discussion-and-reading.md)
+
+## 03. Tony Hoare: Communicating Sequential Processes
+
+- [Seminar overview](03-tony-hoare-communicating-sequential-processes/README.md)
+- [1. Input, output, and a machine of processors](03-tony-hoare-communicating-sequential-processes/01-the-problem.md)
+- [2. Communication is a handshake](03-tony-hoare-communicating-sequential-processes/02-the-handshake.md)
+- [3. Name the process, not the channel](03-tony-hoare-communicating-sequential-processes/03-name-the-process.md)
+- [4. Choice and nondeterminism](03-tony-hoare-communicating-sequential-processes/04-guarded-choice.md)
+- [5. The algebra came later](03-tony-hoare-communicating-sequential-processes/05-the-algebra-came-later.md)
+- [6. occam, the transputer, and Go](03-tony-hoare-communicating-sequential-processes/06-occam-transputer-go.md)
+- [7. Discussion and further reading](03-tony-hoare-communicating-sequential-processes/07-discussion-and-reading.md)
