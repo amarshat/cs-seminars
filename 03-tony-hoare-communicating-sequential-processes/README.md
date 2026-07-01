@@ -17,9 +17,9 @@ Hewitt and Hoare are the two poles of concurrency, and putting them side by side
 ## The four questions
 
 1. **What problem was Hoare actually solving?** How the processors of a multiprocessor machine, each with its own private store, should communicate and synchronize, given that shared memory was expensive and error-prone. He wanted input and output to be language primitives, not afterthoughts.
-2. **Why was the answer surprising?** Because he made communication synchronous and unbuffered on purpose, rejecting the automatic buffering others were proposing, and because he built the whole thing on Dijkstra's guarded commands, turning a construct for local nondeterminism into the mechanism for choosing between communications.
+2. **Why was the answer surprising?** Because he made communication synchronous and unbuffered on purpose, rejecting the automatic buffering others were proposing, and because he built it all on Dijkstra's guarded commands, turning a construct for local nondeterminism into the mechanism for choosing between communications.
 3. **What survived?** The handshake, the guarded choice, and the idea that you structure a concurrent program as sequential processes that only communicate. `select` in Go is Dijkstra's guarded command by way of Hoare. What changed is that the descendants replaced direct process naming with first-class channels, and most of them added the buffering Hoare refused.
-4. **How should a working engineer read it today?** As the origin of the channel-and-select style, and as a lesson in the cost of the choices. The 1978 paper is honest about its own limits in a way worth imitating: it says plainly that it offers no proof method and should not be used as a language.
+4. **How should a working engineer read it today?** As the origin of the channel-and-select style, and as a lesson in the cost of the choices. The 1978 paper is honest about its own limits in a way more papers should copy: it says plainly that it offers no proof method and should not be used as a language.
 
 ## Chapters
 
