@@ -35,3 +35,14 @@
 - [5. The algebra came later](03-tony-hoare-communicating-sequential-processes/05-the-algebra-came-later.md)
 - [6. occam, the transputer, and Go](03-tony-hoare-communicating-sequential-processes/06-occam-transputer-go.md)
 - [7. Discussion and further reading](03-tony-hoare-communicating-sequential-processes/07-discussion-and-reading.md)
+
+## 04. Leslie Lamport: Time, Clocks, and the Ordering of Events
+
+- [Seminar overview](04-leslie-lamport-time-clocks-ordering/README.md)
+- [1. There is no now](04-leslie-lamport-time-clocks-ordering/01-there-is-no-now.md)
+- [2. Happened-before](04-leslie-lamport-time-clocks-ordering/02-happened-before.md)
+- [3. Logical clocks](04-leslie-lamport-time-clocks-ordering/03-logical-clocks.md)
+- [4. The total order and its price](04-leslie-lamport-time-clocks-ordering/04-total-order-and-its-price.md)
+- [5. The forgotten half: physical clocks](04-leslie-lamport-time-clocks-ordering/05-physical-clocks-and-the-anomaly.md)
+- [6. Modern echoes](04-leslie-lamport-time-clocks-ordering/06-modern-echoes.md)
+- [7. Discussion and further reading](04-leslie-lamport-time-clocks-ordering/07-discussion-and-reading.md)
