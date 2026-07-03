@@ -1,0 +1,46 @@
+# 6. Modern echoes
+
+## The paper you are running right now
+
+More than the other classics in this series, Lamport's is load-bearing in systems you touch daily, often without a nod to him. This chapter takes five modern mechanisms and says exactly which half of the 1978 paper each one inherits, and where each goes past it. Two of them descend from the logical-clock half, one is the partial order made concrete, and two are answers to the physical-clock half. One of the five is a cautionary tale about ignoring the paper's central warning.
+
+## Vector clocks and version vectors: fixing the converse
+
+Chapter 3 left a gap: a Lamport scalar clock guarantees that cause gets a smaller number than effect, but the converse fails, so from two bare timestamps you cannot tell whether events are causally related or merely concurrent. Vector clocks close that gap. Instead of one counter, each process keeps a vector with one entry per process, incrementing its own entry and merging entrywise on receipt. Now you can compare two timestamps and get the full answer: one is less than another exactly when the first happened before the second, and if neither dominates, the events are provably concurrent. The vector recovers the partial order faithfully, where the scalar only produced a consistent completion of it.
+
+The dating matters, because this is a successor, not part of the 1978 paper. Version vectors came first, in Parker and colleagues' 1983 work on detecting mutual inconsistency between replicas. The name "vector clock" and the clean mathematics arrived independently in 1988, in papers by Colin Fidge and Friedemann Mattern, formalizing a construction several groups had been using through the mid-1980s. So the line reads: Lamport 1978 defines the causal partial order and a scalar clock consistent with it; the early-to-mid 1980s adds vectors to detect concurrency; Fidge and Mattern give the theory. Vector clocks follow Lamport in taking causality as the object, and exceed him by measuring it exactly, at the cost of size that grows with the number of processes. Amazon's Dynamo made them famous in production, using vector clocks to detect conflicting concurrent writes rather than silently losing one.
+
+## Git: the partial order you commit to
+
+The cleanest illustration of happened-before is probably sitting in your editor. A Git history is a directed acyclic graph of commits, and that graph is literally Lamport's partial order. Each commit points to its parents; a commit happened before another exactly when there is a path of parent edges from the later back to the earlier. Two commits on divergent branches with no path between them are concurrent, in precisely Lamport's sense, and a merge commit is the join that reunites them. When Git tells you two branches diverged and must be merged, it is reporting that the events are incomparable in the partial order and the system will not invent an order for you.
+
+Git follows Lamport in structure and goes beyond him in identity. It does not use Lamport timestamps at all; commits are named by content hashes, so an event's identity is a fingerprint of its entire causal history. That is a stronger form of the same idea: the hash of a commit depends on its parents, so the name of an event encodes the partial order that produced it. Git also shows the human ergonomics of accepting the partial order rather than fighting it. Nobody expects Git to decide which of two independent branches is "later." It surfaces the concurrency and asks a person to resolve it, which is exactly the discipline chapter 2 argued for.
+
+## Kafka: order within a line, not across
+
+Apache Kafka's ordering guarantee is Lamport's shape stated as a product decision. Kafka gives a total order of messages within a single partition and no ordering guarantee across partitions. Map a partition to a process line in a space-time diagram and the correspondence is exact: events on one line are totally ordered, events on different lines are concurrent unless a message connects them. Kafka does not pretend to a global order over a topic, because that would require exactly the coordination Lamport showed is expensive and often unnecessary. If you need two events ordered, you route them to the same partition, which is the engineering version of putting them on the same process line so that local order settles them. Kafka follows Lamport by refusing to promise an order it cannot cheaply keep, and it pushes the causality decision, which events must be ordered, back to the application through the choice of partition key.
+
+## Spanner and hybrid logical clocks: paying to close the anomaly
+
+The physical-clock half of the paper, the half most people forget, is the ancestor of the industry's answers to global ordering. Google's Spanner faces Lamport's anomaly at planetary scale: transactions on different continents need timestamps that respect real order, including order that traveled outside the database. Spanner's answer is TrueTime, introduced in 2012, which is Lamport's ε turned into a capital expenditure. GPS receivers and atomic clocks in every datacenter bound the clock uncertainty, TrueTime exposes that bound as an explicit interval rather than a single number, and a committing transaction waits out the interval so that its timestamp is guaranteed to be in the past before it returns. Commit-wait is the operational form of Lamport's requirement that clocks stay within μ of each other; Spanner just measures the uncertainty honestly and pays for it in latency and hardware.
+
+Hybrid logical clocks, formalized in 2014 and used by CockroachDB, are the cheaper descendant. An HLC couples a physical-time component to a logical counter: it tracks wall-clock time closely, so timestamps are near real time and comparable with external order, but it also jumps forward on message receipt exactly like chapter 3's logical clock, so it never violates causality even when the physical clocks are skewed. It is a deliberate hybrid of the paper's two halves, buying most of the Strong Clock Condition's benefit without atomic clocks, at the cost of a bounded assumption about how far physical clocks can drift. Both Spanner and HLC go far beyond 1978 in mechanism, but both are answers to the exact problem Lamport posed: how to make timestamp order agree with the order the world perceives.
+
+## Cassandra: the warning, ignored
+
+The last echo is the paper's central warning played as a bug. Cassandra resolves conflicting writes to the same key by last-write-wins, keyed on a physical timestamp: the write with the higher timestamp survives. This uses physical time as a stand-in for causal order, which is the precise thing Lamport spent the paper arguing you cannot safely do. When two nodes' clocks are skewed, a write that happened later in real, causal terms can carry a lower timestamp and be silently discarded, or a stale write with a fast clock can clobber a fresh one. There is no error; the losing write simply vanishes. This is not a flaw peculiar to Cassandra so much as the inevitable consequence of using a physical timestamp where you needed a causal order, and it is why teams running last-write-wins learn to fear clock skew. Lamport told them why in 1978: a timestamp is not a time, and physical time is not causality. Cassandra is the echo that forgot the lesson, and pays for it in lost writes.
+
+## The ledger
+
+| Modern mechanism | Which half of 1978 it inherits | Where it goes beyond, or wrong |
+|------------------|-------------------------------|--------------------------------|
+| Vector clocks (1988) / version vectors (1983) | The causal partial order and logical clock | Detects concurrency, which the scalar clock cannot; size grows with process count |
+| Git commit DAG | The happened-before partial order, literally | Content-hash identity encodes causal history; surfaces concurrency to a human |
+| Kafka partitions | Order within a line, concurrency across | Product-level choice; pushes causality to the partition key |
+| Spanner TrueTime (2012) | The physical-clock half and the anomaly | Bounds uncertainty with atomic clocks and commit-wait; a hardware budget for ε |
+| Hybrid logical clocks (2014) | Both halves, spliced | Physical time plus a causal jump-forward; bounded-drift assumption |
+| Cassandra last-write-wins | Physical timestamps standing in for order | Ignores the warning; clock skew silently drops writes |
+
+Read the middle column and the pattern is that Lamport did not write one influential idea, he wrote two, and the industry split them. The causal partial order became the backbone of concurrency detection and version control. The physical-clock bound became the backbone of globally consistent databases. The only mechanism in the table that gets into trouble is the one that ignored his sharpest point, that physical time and causal order are different things and confusing them costs you data.
+
+> **Principle:** Lamport's two halves became two industries. Track causality and you get vector clocks, Git, and Kafka. Bound physical time and you get Spanner and hybrid clocks. Confuse the two and you get lost writes.
