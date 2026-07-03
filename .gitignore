@@ -1,6 +1,9 @@
 # Source-of-truth planning notes. Never published.
 ignore/
 
+# Cursor workspace config (rules, etc.). Kept local, not published.
+.cursor/
+
 # OS and editor cruft
 .DS_Store
 .idea/
