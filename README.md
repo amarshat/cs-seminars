@@ -6,7 +6,7 @@ Some of the ideas that hold up your stack were written down decades ago. Logical
 
 This project closes that gap.
 
-The name borrows from *scholia*, the explanatory notes that medieval scribes wrote in the margins of classical texts so the next reader could follow the argument. Each seminar here is a margin note on a foundational work of computer science: a chapter-by-chapter reading that reconstructs what the author was actually thinking, puts it back in its own time, and then asks the honest question. Does this still hold up, and where?
+Each seminar here is a margin note on a foundational work of computer science: a chapter-by-chapter reading that reconstructs what the author was actually thinking, puts it back in its own time, and then asks the honest question. Does this still hold up, and where?
 
 ## What a seminar does
 
