@@ -46,3 +46,14 @@
 - [5. The forgotten half: physical clocks](04-leslie-lamport-time-clocks-ordering/05-physical-clocks-and-the-anomaly.md)
 - [6. Modern echoes](04-leslie-lamport-time-clocks-ordering/06-modern-echoes.md)
 - [7. Discussion and further reading](04-leslie-lamport-time-clocks-ordering/07-discussion-and-reading.md)
+
+## 05. Barbara Liskov: Viewstamped Replication
+
+- [Seminar overview](05-barbara-liskov-viewstamped-replication/README.md)
+- [1. The unfinished business](05-barbara-liskov-viewstamped-replication/01-the-unfinished-business.md)
+- [2. The primary imposes the order](05-barbara-liskov-viewstamped-replication/02-the-primary-imposes-order.md)
+- [3. Why 2f+1](05-barbara-liskov-viewstamped-replication/03-quorum-intersection.md)
+- [4. The view change](05-barbara-liskov-viewstamped-replication/04-the-view-change.md)
+- [5. 1988 versus 2012](05-barbara-liskov-viewstamped-replication/05-1988-vs-2012.md)
+- [6. VR and its family](05-barbara-liskov-viewstamped-replication/06-vr-and-its-family.md)
+- [7. Discussion and further reading](05-barbara-liskov-viewstamped-replication/07-discussion-and-reading.md)
