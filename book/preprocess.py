@@ -30,6 +30,9 @@ FRONT = [
     os.path.join(ROOT, "book", "frontmatter", "00-copyright.md"),
     os.path.join(ROOT, "book", "frontmatter", "01-preface.md"),
 ]
+BACK = [
+    os.path.join(ROOT, "book", "backmatter", "98-about.md"),
+]
 MMDC = shutil.which("mmdc")
 LINK_RE = re.compile(r"\]\(([^)]+\.md)(?:#[^)]*)?\)")
 MERMAID_RE = re.compile(r"```mermaid\n(.*?)```", re.S)
@@ -84,7 +87,7 @@ def render_mermaid(md, src):
 
 def main():
     os.makedirs(IMGDIR, exist_ok=True)
-    sources = FRONT + chapters_from_summary()
+    sources = FRONT + chapters_from_summary() + BACK
     idmap = {os.path.normpath(s): slug(s) for s in sources}
     parts = []
     for s in sources:
