@@ -68,3 +68,14 @@
 - [5. Virtues and limitations](06-jim-gray-the-transaction-concept/05-virtues-and-limitations.md)
 - [6. The transaction in the modern world](06-jim-gray-the-transaction-concept/06-the-transaction-in-the-modern-world.md)
 - [7. Discussion and further reading](06-jim-gray-the-transaction-concept/07-discussion-and-reading.md)
+
+## 07. Edgar F. Codd: The Relational Model
+
+- [Seminar overview](07-edgar-codd-relational-model/README.md)
+- [1. Programs chained to storage](07-edgar-codd-relational-model/01-programs-chained-to-storage.md)
+- [2. A relation is not a table](07-edgar-codd-relational-model/02-a-relation-is-not-a-table.md)
+- [3. Say what, not how](07-edgar-codd-relational-model/03-say-what-not-how.md)
+- [4. What 1970 settled](07-edgar-codd-relational-model/04-what-1970-settled.md)
+- [5. The optimizer makes it real](07-edgar-codd-relational-model/05-the-optimizer-makes-it-real.md)
+- [6. What survived, and information hiding](07-edgar-codd-relational-model/06-what-survived-and-information-hiding.md)
+- [7. Discussion and further reading](07-edgar-codd-relational-model/07-discussion-and-reading.md)
