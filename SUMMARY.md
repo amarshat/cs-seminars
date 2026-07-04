@@ -57,3 +57,14 @@
 - [5. 1988 versus 2012](05-barbara-liskov-viewstamped-replication/05-1988-vs-2012.md)
 - [6. VR and its family](05-barbara-liskov-viewstamped-replication/06-vr-and-its-family.md)
 - [7. Discussion and further reading](05-barbara-liskov-viewstamped-replication/07-discussion-and-reading.md)
+
+## 06. Jim Gray: The Transaction Concept
+
+- [Seminar overview](06-jim-gray-the-transaction-concept/README.md)
+- [1. A transaction is a contract](06-jim-gray-the-transaction-concept/01-a-transaction-is-a-contract.md)
+- [2. All or nothing](06-jim-gray-the-transaction-concept/02-all-or-nothing.md)
+- [3. Isolation without the word](06-jim-gray-the-transaction-concept/03-isolation-without-the-word.md)
+- [4. The commit is a handshake](06-jim-gray-the-transaction-concept/04-the-commit-is-a-handshake.md)
+- [5. Virtues and limitations](06-jim-gray-the-transaction-concept/05-virtues-and-limitations.md)
+- [6. The transaction in the modern world](06-jim-gray-the-transaction-concept/06-the-transaction-in-the-modern-world.md)
+- [7. Discussion and further reading](06-jim-gray-the-transaction-concept/07-discussion-and-reading.md)

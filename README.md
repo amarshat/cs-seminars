@@ -52,6 +52,7 @@ CS-Seminars reads the classics as answers to those questions, then checks the an
 | 03 | Tony Hoare | *Communicating Sequential Processes* | Synchronous message-passing |
 | 04 | Leslie Lamport | *Time, Clocks, and the Ordering of Events in a Distributed System* | Causal order without a clock |
 | 05 | Barbara Liskov | *Viewstamped Replication* (Oki & Liskov 1988; Liskov & Cowling 2012) | Crash-fault-tolerant state-machine replication |
+| 06 | Jim Gray | *The Transaction Concept: Virtues and Limitations* | Transactions and atomic commit |
 
 More seminars are planned. They get added to this index as each one clears review.
 
