@@ -33,7 +33,7 @@ flowchart TB
     q2 -->|message| p3
     p2 -->|message| q4
     end
-    note["p2 → p3 → p4 and q2 → p3, so q2 → p4.<br/>But p2 and q3 are concurrent:<br/>no path either way."]
+    note["p2 -> p3 -> p4 and q2 -> p3, so q2 -> p4.<br/>But p2 and q3 are concurrent:<br/>no path either way."]
 ```
 
 ## Lamport's own analogy: special relativity, used carefully

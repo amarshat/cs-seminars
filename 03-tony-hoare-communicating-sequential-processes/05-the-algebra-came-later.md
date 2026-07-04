@@ -22,7 +22,7 @@ The central idea is to identify a process with its set of observable behaviors. 
 flowchart LR
     SPEC["specification<br/>(a set of allowed behaviors)"]
     IMPL["implementation<br/>(a set of behaviors)"]
-    IMPL -->|"refines: behaviors ⊆ allowed"| SPEC
+    IMPL -->|"refines: behaviors are a subset of allowed"| SPEC
     note["deadlock-freedom, safety, and<br/>correctness become questions<br/>about sets of traces and failures"]
 ```
 

@@ -47,15 +47,13 @@ But you pay a bill Armstrong mostly avoided. His model already assumes unreliabl
 
 ## What actually survived
 
-| System | Recovery shape it inherited | Where it structurally diverges |
-|--------|----------------------------|--------------------------------|
-| systemd | Supervised restart with intensity limits | Heavy OS processes; no restart escalation up a tree |
-| Kubernetes | Restart in place (kubelet) plus reconcile (controller) | Six orders coarser and slower; backoff but no escalation; supervises whole instances, not tasks |
-| Akka / Orleans | Supervisor strategies, mailboxes, let it crash | Shared-heap runtime; isolation by convention, not enforced |
-| Elixir / OTP | The whole model | None; it is the BEAM |
-| Temporal | Survive worker crashes | Replays a durable log instead of restarting clean; needs deterministic code |
-| Microservices | Share-nothing, message-passing isolation | Full network failure model on every call |
+- **systemd** inherited supervised restart with intensity limits. It diverges in using heavy OS processes and having no restart escalation up a tree.
+- **Kubernetes** inherited restart in place (the kubelet) plus reconcile (the controller). It diverges by being six orders coarser and slower, backing off but never escalating, and supervising whole instances rather than tasks.
+- **Akka and Orleans** inherited supervisor strategies, mailboxes, and let it crash. They diverge on a shared-heap runtime where isolation is convention, not enforced.
+- **Elixir and OTP** inherited the whole model, and diverge in nothing: it is the BEAM.
+- **Temporal** inherited surviving worker crashes. It diverges by replaying a durable log instead of restarting clean, which needs deterministic code.
+- **Microservices** inherited share-nothing, message-passing isolation, and diverge by taking on the full network failure model on every call.
 
-Read down the right-hand column and one thing stands out. Almost everyone took the recovery shape, isolate, supervise, restart, escalate, because it is correct and hard to improve on. Almost no one took the part that was actually difficult: enforced isolation at the granularity of a process cheap enough to spend by the million. That specific combination is still rare, and it is why Armstrong's design, not just his architecture, still teaches something. The shape was easy to copy. The foundation under it was not.
+Read the divergences and one thing stands out. Almost everyone took the recovery shape, isolate, supervise, restart, escalate, because it is correct and hard to improve on. Almost no one took the part that was actually difficult: enforced isolation at the granularity of a process cheap enough to spend by the million. That specific combination is still rare, and it is why Armstrong's design, not just his architecture, still teaches something. The shape was easy to copy. The foundation under it was not.
 
 > **Principle:** The recovery shape travels easily and turns up everywhere. The enforced, cheap isolation that makes it safe does not, so most systems inherit the architecture and rebuild the hard part by hand, if at all.

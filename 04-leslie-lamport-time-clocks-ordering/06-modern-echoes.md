@@ -32,15 +32,13 @@ The last echo is the paper's central warning played as a bug. Cassandra resolves
 
 ## The ledger
 
-| Modern mechanism | Which half of 1978 it inherits | Where it goes beyond, or wrong |
-|------------------|-------------------------------|--------------------------------|
-| Vector clocks (1988) / version vectors (1983) | The causal partial order and logical clock | Detects concurrency, which the scalar clock cannot; size grows with process count |
-| Git commit DAG | The happened-before partial order, literally | Content-hash identity encodes causal history; surfaces concurrency to a human |
-| Kafka partitions | Order within a line, concurrency across | Product-level choice; pushes causality to the partition key |
-| Spanner TrueTime (2012) | The physical-clock half and the anomaly | Bounds uncertainty with atomic clocks and commit-wait; a hardware budget for ε |
-| Hybrid logical clocks (2014) | Both halves, spliced | Physical time plus a causal jump-forward; bounded-drift assumption |
-| Cassandra last-write-wins | Physical timestamps standing in for order | Ignores the warning; clock skew silently drops writes |
+- **Vector clocks (1988) and version vectors (1983)** inherit the causal partial order and the logical clock, and go beyond it by detecting concurrency, which the scalar clock cannot, at the cost of size that grows with the process count.
+- **Git's commit DAG** inherits the happened-before partial order, literally, and goes beyond it: content-hash identity encodes causal history and surfaces concurrency to a human.
+- **Kafka partitions** inherit order within a line and concurrency across lines, a product-level choice that pushes causality onto the partition key.
+- **Spanner TrueTime (2012)** inherits the physical-clock half and the anomaly, and goes beyond by bounding uncertainty with atomic clocks and commit-wait, a hardware budget for epsilon.
+- **Hybrid logical clocks (2014)** inherit both halves spliced together: physical time plus a causal jump-forward, on a bounded-drift assumption.
+- **Cassandra last-write-wins** inherits physical timestamps standing in for order, and goes wrong by ignoring the warning, so clock skew silently drops writes.
 
-Read the middle column and the pattern is that Lamport did not write one influential idea, he wrote two, and the industry split them. The causal partial order became the backbone of concurrency detection and version control. The physical-clock bound became the backbone of globally consistent databases. The only mechanism in the table that gets into trouble is the one that ignored his sharpest point, that physical time and causal order are different things and confusing them costs you data.
+Read what each one inherits and the pattern is that Lamport did not write one influential idea, he wrote two, and the industry split them. The causal partial order became the backbone of concurrency detection and version control. The physical-clock bound became the backbone of globally consistent databases. The only mechanism in the table that gets into trouble is the one that ignored his sharpest point, that physical time and causal order are different things and confusing them costs you data.
 
 > **Principle:** Lamport's two halves became two industries. Track causality and you get vector clocks, Git, and Kafka. Bound physical time and you get Spanner and hybrid clocks. Confuse the two and you get lost writes.

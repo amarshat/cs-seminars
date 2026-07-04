@@ -43,13 +43,11 @@ The first axis is synchrony. CSP is a synchronous rendezvous: sender and receive
 
 Rob Pike put the addressing point sharply when he observed that Erlang, which communicates "to a process by name," is on that axis closer to the original CSP than Go is, even though Erlang is an asynchronous actor language and Go is the CSP descendant. His analogy was writing to a file by name versus writing to a file descriptor. The lesson is that "actor versus CSP" is not one distinction but two, and the famous descendants scramble them: Erlang is asynchronous like an actor but names processes like CSP, while Go is synchronous-capable like CSP but names channels like nothing in either original.
 
-| System | What it took from CSP 1978 | Where it diverges |
-|--------|----------------------------|-------------------|
-| occam + transputer | Synchronous rendezvous, guarded choice (`ALT`), no shared memory, static network | Names channels, not processes (the §7.3 alternative) |
-| CSP 1985 book | The programs and primitives | Adds the algebra; reformulates around channels |
-| Go | `select` as guarded choice, unbuffered channel as rendezvous | First-class channels, optional buffering, dynamic goroutines, shared memory not forbidden |
-| Erlang (actor line) | Nothing directly; convergent | Asynchronous and buffered, but names processes like CSP does |
+- **occam and the transputer** took synchronous rendezvous, guarded choice (`ALT`), no shared memory, and a static network. They diverge by naming channels, not processes (the section 7.3 alternative).
+- **The CSP 1985 book** took the programs and primitives, and diverges by adding the algebra and reformulating around channels.
+- **Go** took `select` as guarded choice and the unbuffered channel as rendezvous. It diverges with first-class channels, optional buffering, dynamic goroutines, and shared memory that is not forbidden.
+- **Erlang** (the actor line) took nothing directly and is convergent: asynchronous and buffered, but it names processes the way CSP does.
 
-Read the right column and the pattern from the earlier seminars repeats. The abstract commitment, structure a concurrent program as sequential processes that communicate rather than share, survived everywhere. The specific 1978 choices, synchronous, unbuffered, statically named processes with no shared memory, survived only in occam. Everyone else kept the shape and renegotiated the terms.
+Read the divergences and the pattern from the earlier seminars repeats. The abstract commitment, structure a concurrent program as sequential processes that communicate rather than share, survived everywhere. The specific 1978 choices, synchronous, unbuffered, statically named processes with no shared memory, survived only in occam. Everyone else kept the shape and renegotiated the terms.
 
 > **Principle:** A model spreads by its shape and mutates in its details. CSP's shape, sequential processes communicating instead of sharing, is everywhere; its exact 1978 terms survive only where the hardware was built to enforce them.

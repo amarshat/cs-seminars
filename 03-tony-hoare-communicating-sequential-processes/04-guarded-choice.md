@@ -39,7 +39,7 @@ The semaphore repeatedly offers two kinds of communication to a hundred client p
 
 ```mermaid
 flowchart TB
-    S["semaphore S<br/>*[ ... □ ... ]"]
+    S["semaphore S<br/>*[ ... [] ... ]"]
     X1["X(1)!P()"] -->|ready?| S
     X2["X(2)!V()"] -->|ready?| S
     X3["X(3)!P()"] -->|ready?| S

@@ -16,7 +16,7 @@ Now the price, which Lamport states plainly and which the trap list is right to 
 
 ```mermaid
 flowchart TB
-    po["Partial order (invariant)<br/>a → b, a → c<br/>b, c concurrent"]
+    po["Partial order (invariant)<br/>a -> b, a -> c<br/>b, c concurrent"]
     po --> t1["Total order A:<br/>a, b, c<br/>(tie-break by process id)"]
     po --> t2["Total order B:<br/>a, c, b<br/>(different clocks / rank)"]
     note["Both extend the partial order.<br/>Neither is 'the' order. The partial order is the only truth."]

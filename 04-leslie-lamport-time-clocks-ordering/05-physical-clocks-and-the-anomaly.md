@@ -15,9 +15,9 @@ Lamport names the two ways out. The first puts the burden on the user: when you 
 ```mermaid
 flowchart LR
     A["request A<br/>on computer A"] -.->|"phone call<br/>(outside the system)"| B["request B<br/>on computer B"]
-    A -->|"logical clocks see<br/>no connection"| sys["System orders A, B<br/>as concurrent → may put B first"]
+    A -->|"logical clocks see<br/>no connection"| sys["System orders A, B<br/>as concurrent, may put B first"]
     B --> sys
-    note["The causal edge A → B exists,<br/>but travels over a channel the system never observed."]
+    note["The causal edge A -> B exists,<br/>but travels over a channel the system never observed."]
 ```
 
 ## Lamport's move: bring physical clocks back, but bound them

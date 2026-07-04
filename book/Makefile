@@ -17,6 +17,7 @@ epub: $(BUILD)/book.md
 	cd $(ROOT) && pandoc book/$(BUILD)/book.md \
 	  --metadata-file=book/metadata.yaml \
 	  --css=book/epub.css \
+	  --resource-path=book/$(BUILD) \
 	  --toc --toc-depth=1 \
 	  $(if $(wildcard $(COVER)),--epub-cover-image=book/$(COVER),) \
 	  -o book/$(EPUB)

@@ -24,7 +24,7 @@ sequenceDiagram
     P->>B: PREPARE(view, op, op-number, commit-number)
     Note over B: append to log in order
     B->>P: PREPAREOK(view, op-number)
-    Note over P: on f PREPAREOKs → committed;<br/>execute via up-call
+    Note over P: on f PREPAREOKs, committed,<br/>execute via up-call
     P->>C: REPLY(result)
     Note over P,B: next PREPARE (or COMMIT) carries the new commit-number
 ```

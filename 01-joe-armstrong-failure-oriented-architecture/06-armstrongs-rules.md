@@ -6,14 +6,12 @@ Early in the thesis, while he is still laying out the problem rather than the so
 
 That framing is what makes the list worth more than its Erlang origins. Twenty years on, the most useful thing to do with these six is to treat them as a grading rubric. Any platform that claims to be fault-tolerant, a Kubernetes cluster, a serverless runtime, an actor framework, a service mesh, can be held up against this list. Where it scores well, it earned its claim. Where it scores badly, you have found the failure mode that will surprise its operators. Here are the six, in Armstrong's order, with what each one is really demanding and where modern platforms pass or quietly fail.
 
-| # | Requirement | What it demands | Where it lives in this seminar |
-|---|-------------|-----------------|-------------------------------|
-| R1 | Concurrency | Create and destroy processes so cheaply there is no penalty for having huge numbers of them | [Chapter 2](02-concurrency-oriented-programming.md) |
-| R2 | Error encapsulation | A fault in one process cannot damage another | [Chapter 2](02-concurrency-oriented-programming.md) |
-| R3 | Fault detection | Detect failures both locally and in a remote process | [Chapter 5](05-links-and-monitors.md) |
-| R4 | Fault identification | Determine why a failure happened, well enough to fix it later | [Chapter 5](05-links-and-monitors.md) |
-| R5 | Code upgrade | Change code in a running system without stopping it | this chapter |
-| R6 | Stable storage | Keep data that survives a crash | [Chapter 4](04-supervision-trees.md) |
+- **R1, Concurrency** ([Chapter 2](02-concurrency-oriented-programming.md)): create and destroy processes so cheaply there is no penalty for having huge numbers of them.
+- **R2, Error encapsulation** ([Chapter 2](02-concurrency-oriented-programming.md)): a fault in one process cannot damage another.
+- **R3, Fault detection** ([Chapter 5](05-links-and-monitors.md)): detect failures both locally and in a remote process.
+- **R4, Fault identification** ([Chapter 5](05-links-and-monitors.md)): determine why a failure happened, well enough to fix it later.
+- **R5, Code upgrade** (this chapter): change code in a running system without stopping it.
+- **R6, Stable storage** ([Chapter 4](04-supervision-trees.md)): keep data that survives a crash.
 
 Notice the shape. R1 and R2 are the isolation base: cheap processes and hard boundaries. R3 and R4 are about perceiving failure: not just that something broke, but what and why. R5 and R6 are about continuity over time: changing the system and keeping its memory across crashes. The architecture of the previous chapters falls out of these six almost line by line.
 

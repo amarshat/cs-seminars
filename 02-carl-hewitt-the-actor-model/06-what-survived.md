@@ -39,17 +39,15 @@ Microsoft's Orleans took a different cut with virtual actors, called grains. A g
 
 ## The ledger
 
-| Idea | Origin | Status today |
-|------|--------|--------------|
-| Everything communicates only by message | Hewitt 1973 | Survived, core of every actor system |
-| Address as capability, no shared state | Hewitt 1973 | Survived as the model's ideal; enforced on BEAM, by convention on JVM/CLR |
-| Causality as a partial order, no global clock | Hewitt 1973 (formalized Greif 1975) | Survived, and became the backbone of distributed systems |
-| Behavioral equivalence, intentions as contracts | Hewitt 1973 | Survived as bisimulation and design by contract |
-| Side-effect-free actor, shareable continuation | Hewitt 1973 | Replaced by stateful, serialized actors |
-| Guaranteed fair message delivery | Hewitt and Baker 1977 | Survived in the formal model; runtimes vary |
-| State via `become`, one message at a time | Agha 1986 | The definition most engineers now mean |
-| Supervision, links, restart | Armstrong / Erlang (convergent) | Survived, but never Hewitt's |
+- **Everything communicates only by message** (Hewitt 1973): survived, the core of every actor system.
+- **Address as capability, no shared state** (Hewitt 1973): survived as the model's ideal, enforced on the BEAM, by convention on the JVM and CLR.
+- **Causality as a partial order, no global clock** (Hewitt 1973, formalized by Greif 1975): survived, and became the backbone of distributed systems.
+- **Behavioral equivalence, intentions as contracts** (Hewitt 1973): survived as bisimulation and design by contract.
+- **Side-effect-free actor, shareable continuation** (Hewitt 1973): replaced by stateful, serialized actors.
+- **Guaranteed fair message delivery** (Hewitt and Baker 1977): survived in the formal model, though runtimes vary.
+- **State via `become`, one message at a time** (Agha 1986): the definition most engineers now mean.
+- **Supervision, links, restart** (Armstrong and Erlang, convergent): survived, but never Hewitt's.
 
-Read the middle of that table and the pattern is clear. The abstract commitments survived almost untouched: message-only communication, no shared state, causal order, behavioral identity. The concrete semantics of a single actor got rewritten twice, first by Agha to add state, then by the runtimes to enforce isolation and add supervision. The idea was robust. The details were replaceable, and got replaced.
+Read down that list and the pattern is clear. The abstract commitments survived almost untouched: message-only communication, no shared state, causal order, behavioral identity. The concrete semantics of a single actor got rewritten twice, first by Agha to add state, then by the runtimes to enforce isolation and add supervision. The idea was robust. The details were replaceable, and got replaced.
 
 > **Principle:** A powerful idea survives by being rewritten. The parts that endure are the constraints (communicate only by message, share no state, order by cause), not the mechanism. Check the citation before you put a modern actor's habits in a 1973 author's mouth.

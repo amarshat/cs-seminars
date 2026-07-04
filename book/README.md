@@ -31,7 +31,7 @@ The build reads chapter order from the top-level `SUMMARY.md`, so a new seminar 
 ## Still to do before publishing
 
 - **Cover.** KDP requires one. Drop a `book/cover.png` here (ideal 1600x2560, JPG or PNG). A clean typographic cover is fine. Until it exists the build simply omits the cover.
-- **Wide-table pass.** A few existing chapters use three- or four-column comparison tables (Armstrong ch6 and ch7, Hoare ch6, Liskov ch6). On a reflowable Kindle these get squeezed. Either narrow them, turn them into prose or definition lists, or render them as images. Going forward the Kindle-ready rule and the Ebook/Production reviewer keep new chapters clean.
+- **Wide-table pass (done).** The wide three- and four-column comparison tables (Armstrong ch6 and ch7, Hoare ch6, Liskov ch6, plus Hewitt ch6 and Lamport ch6) were converted to definition-style bullet lists so they reflow on a Kindle. Only narrow two-column tables remain. Going forward the Kindle-ready rule and the Ebook/Production reviewer keep new chapters clean.
 - **Bibliography.** Consolidate the per-seminar reading lists into one references section at the back, with full citations.
 - **Rights pass.** The book quotes the primary sources at length. Short quotes for transformative commentary are fair use, but do one pass to confirm each quote is scoped and attributed, and that every source has a full citation.
 - **KDP metadata.** Title, subtitle, author, description (from `metadata.yaml`), up to 7 keywords, 2 categories (Computers & Technology). Fill the release `date` in `metadata.yaml`.

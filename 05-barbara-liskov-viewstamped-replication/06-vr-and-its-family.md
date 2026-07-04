@@ -20,14 +20,14 @@ The differences are real but narrow. Raft has voters enforce log currency by ref
 
 Zab, the ZooKeeper Atomic Broadcast protocol (Junqueira, Reed, and Serafini, 2011), is the replication protocol under Apache ZooKeeper, the coordination service that half the distributed systems of the 2010s used for leader election and configuration. Zab is another leader-based primary-backup log protocol in the VR family, and it uses `epoch` numbers where VR uses view numbers. The production replicated logs mostly run on Raft: etcd (the store behind Kubernetes), CockroachDB and TiKV (which run a Raft group per key range), and others. Kafka's KRaft mode manages cluster metadata with a Raft-based quorum, and Kafka's partition leadership carries a leader `epoch` to fence stale leaders, the same trick as VR's view number. Multi-Paxos underlies Google's Chubby lock service and, extended with real-time clocks, Spanner. Under every one of these is VR's skeleton: a leader imposes a total order on a log, a majority must store an entry before it counts, and a leader-change protocol carries committed entries across via quorum intersection.
 
-| Protocol / system | Relationship to VR | "View" is called | Note |
-|-------------------|--------------------|------------------|------|
-| Paxos (Lamport) | Convergent, independent, contemporaneous | ballot / round | Consensus core; VR uses consensus, is not just consensus |
-| Raft | Closest modern relative; cites VR | term | Strong leader; election enforces log currency by vote |
-| Zab (ZooKeeper) | Same family; primary-backup broadcast | epoch | Powers ZooKeeper coordination |
-| Multi-Paxos (Chubby, Spanner) | Paxos line | ballot | Stable leader over many consensus instances |
-| etcd, CockroachDB, TiKV | Built on Raft | term | Per-range Raft groups in Cockroach/TiKV |
-| Kafka KRaft | Built on Raft; partition epochs | epoch | Metadata quorum plus leader-epoch fencing |
+The family, at a glance, with what each calls the "view":
+
+- **Paxos** (Lamport): convergent, independent, contemporaneous; calls the view a *ballot* or *round*. The consensus core, which VR uses but is not limited to.
+- **Raft**: the closest modern relative and cites VR; calls the view a *term*. Strong leader, and election enforces log currency by vote.
+- **Zab** (ZooKeeper): same family, primary-backup broadcast; calls the view an *epoch*. Powers ZooKeeper coordination.
+- **Multi-Paxos** (Chubby, Spanner): the Paxos line; *ballot*. A stable leader over many consensus instances.
+- **etcd, CockroachDB, TiKV**: built on Raft; *term*. Cockroach and TiKV run a Raft group per key range.
+- **Kafka KRaft**: built on Raft with partition epochs; *epoch*. A metadata quorum plus leader-epoch fencing.
 
 ## The one relative that is a different problem: Byzantine faults
 
