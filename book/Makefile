@@ -18,7 +18,7 @@ epub: $(BUILD)/book.md
 	  --metadata-file=book/metadata.yaml \
 	  --css=book/epub.css \
 	  --resource-path=book/$(BUILD) \
-	  --toc --toc-depth=1 \
+	  --toc --toc-depth=2 \
 	  $(if $(wildcard $(COVER)),--epub-cover-image=book/$(COVER),) \
 	  -o book/$(EPUB)
 	@echo "built book/$(EPUB)"

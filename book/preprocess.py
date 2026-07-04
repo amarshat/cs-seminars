@@ -57,6 +57,33 @@ def chapters_from_summary():
     return files
 
 
+FENCE_RE = re.compile(r"^(```|~~~)")
+HEAD_RE = re.compile(r"^(#{1,6})(\s.*)$")
+
+
+def shift_headings(md, keep_first_h1):
+    """Push every heading down one level, skipping fenced code. If keep_first_h1,
+    the first heading (a seminar or section title) stays put and becomes a
+    top-level TOC entry, with everything under it nested below."""
+    out, in_fence, seen = [], False, False
+    for ln in md.split("\n"):
+        if FENCE_RE.match(ln):
+            in_fence = not in_fence
+            out.append(ln)
+            continue
+        m = None if in_fence else HEAD_RE.match(ln)
+        if m:
+            if keep_first_h1 and not seen:
+                out.append(ln)
+            else:
+                h = m.group(1)
+                out.append((h + "#" if len(h) < 6 else h) + m.group(2))
+            seen = True
+        else:
+            out.append(ln)
+    return "\n".join(out)
+
+
 def render_mermaid(md, src):
     counter = [0]
 
@@ -89,13 +116,20 @@ def main():
     os.makedirs(IMGDIR, exist_ok=True)
     sources = FRONT + chapters_from_summary() + BACK
     idmap = {os.path.normpath(s): slug(s) for s in sources}
+    front_back = {os.path.normpath(p) for p in FRONT + BACK}
     parts = []
     for s in sources:
         with open(s) as f:
             md = f.read()
         sid = idmap[os.path.normpath(s)]
-        # attach a stable id to the first H1 so links can target it
-        md = re.sub(r"^(#\s+.+?)\s*$", r"\1 {#" + sid + "}", md, count=1, flags=re.M)
+        # Nest the TOC: seminar READMEs and front/back keep their title at the top
+        # level; chapters demote by one so the chapter title becomes an H2 under
+        # its seminar. A depth-2 TOC then shows chapters nested under seminars.
+        keep_h1 = (os.path.basename(s) == "README.md"
+                   or os.path.normpath(s) in front_back)
+        md = shift_headings(md, keep_h1)
+        # attach a stable id to the first heading (any level) so links can target it
+        md = re.sub(r"^(#{1,6}\s+.+?)\s*$", r"\1 {#" + sid + "}", md, count=1, flags=re.M)
         base = os.path.dirname(s)
 
         def rewrite_link(m, _base=base, _src=s):

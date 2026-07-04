@@ -3,7 +3,7 @@
 body { line-height: 1.5; }
 
 h1, h2, h3, h4 { line-height: 1.2; page-break-after: avoid; }
-h1 { page-break-before: always; }   /* each seminar part and chapter starts a page */
+h1, h2 { page-break-before: always; }   /* h1 = seminar/part, h2 = chapter; each starts a page */
 
 p { margin: 0 0 0.8em 0; text-indent: 0; }
 
