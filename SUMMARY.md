@@ -79,3 +79,15 @@
 - [5. The optimizer makes it real](07-edgar-codd-relational-model/05-the-optimizer-makes-it-real.md)
 - [6. What survived, and information hiding](07-edgar-codd-relational-model/06-what-survived-and-information-hiding.md)
 - [7. Discussion and further reading](07-edgar-codd-relational-model/07-discussion-and-reading.md)
+
+## 08. Butler Lampson: Hints for Computer System Design
+
+- [Seminar overview](08-butler-lampson-hints-for-system-design/README.md)
+- [1. The catalog and the pun](08-butler-lampson-hints-for-system-design/01-the-catalog-and-the-pun.md)
+- [2. Keep it simple, get it right](08-butler-lampson-hints-for-system-design/02-keep-it-simple-get-it-right.md)
+- [3. Don't hide power](08-butler-lampson-hints-for-system-design/03-dont-hide-power.md)
+- [4. Designing for change](08-butler-lampson-hints-for-system-design/04-designing-for-change.md)
+- [5. Speed, and the normal case](08-butler-lampson-hints-for-system-design/05-speed-and-the-normal-case.md)
+- [6. The hint](08-butler-lampson-hints-for-system-design/06-the-hint.md)
+- [7. End-to-end, logs, and atomic actions](08-butler-lampson-hints-for-system-design/07-end-to-end-logs-atomic-actions.md)
+- [8. Contradictions, and how to read it today](08-butler-lampson-hints-for-system-design/08-contradictions-and-reading-today.md)

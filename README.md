@@ -54,6 +54,7 @@ CS-Seminars reads the classics as answers to those questions, then checks the an
 | 05 | Barbara Liskov | *Viewstamped Replication* (Oki & Liskov 1988; Liskov & Cowling 2012) | Crash-fault-tolerant state-machine replication |
 | 06 | Jim Gray | *The Transaction Concept: Virtues and Limitations* | Transactions and atomic commit |
 | 07 | Edgar F. Codd | *A Relational Model of Data for Large Shared Data Banks* | Data independence and the relational model |
+| 08 | Butler Lampson | *Hints for Computer System Design* | Design judgment: interfaces, simplicity, and hints |
 
 More seminars are planned. They get added to this index as each one clears review.
 
