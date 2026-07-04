@@ -1,0 +1,27 @@
+/* Kindle-friendly, reflowable. Keep it minimal; Kindle overrides a lot. */
+
+body { line-height: 1.5; }
+
+h1, h2, h3, h4 { line-height: 1.2; page-break-after: avoid; }
+h1 { page-break-before: always; }   /* each seminar part and chapter starts a page */
+
+p { margin: 0 0 0.8em 0; text-indent: 0; }
+
+img { max-width: 100%; height: auto; }
+
+pre {
+  white-space: pre-wrap;      /* wrap long code so it is not clipped on small screens */
+  word-wrap: break-word;
+  font-size: 0.85em;
+}
+code { font-size: 0.9em; }
+
+table { border-collapse: collapse; width: 100%; font-size: 0.85em; }
+th, td { border: 1px solid #999; padding: 0.3em 0.4em; text-align: left; }
+
+blockquote {
+  margin: 0.8em 1em;
+  padding-left: 0.8em;
+  border-left: 3px solid #ccc;
+  font-style: italic;
+}

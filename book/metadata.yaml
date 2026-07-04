@@ -1,0 +1,21 @@
+---
+title: CS-Seminars
+subtitle: Reading the Classics of Computer Science
+author: Amar Akshat
+language: en-US
+date: "2026"        # set to the actual release date at publish time
+publisher: Independently published
+rights: >
+  Original commentary and text are released under Creative Commons
+  Attribution 4.0 International (CC BY 4.0). Short quotations from the
+  original papers and theses remain the property of their authors and
+  are reproduced for criticism and commentary.
+description: >
+  Modern graduate seminars on the foundational papers of computer science.
+  Each seminar reconstructs a classic work, places it in its own time, and
+  tests its ideas against the systems we build today.
+subject:
+  - Computer Science
+  - Distributed Systems
+  - Software Engineering
+...

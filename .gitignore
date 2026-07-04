@@ -9,3 +9,8 @@ ignore/
 .idea/
 .vscode/
 *.swp
+
+# Ebook build output and stray source PDFs (papers are fetched to scratch, never committed)
+book/build/
+*.epub
+*.pdf
