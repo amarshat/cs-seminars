@@ -127,3 +127,15 @@
 - [6. The split, and the honest scope](11-cerf-kahn-internet-architecture/06-the-split-and-the-scope.md)
 - [7. Modern echoes](11-cerf-kahn-internet-architecture/07-modern-echoes.md)
 - [8. Discussion and further reading](11-cerf-kahn-internet-architecture/08-discussion-and-reading.md)
+
+## 12. David Clark: The End-to-End Internet
+
+- [Seminar overview](12-david-clark-end-to-end/README.md)
+- [1. The principle, stated carefully](12-david-clark-end-to-end/01-the-principle-stated-carefully.md)
+- [2. A guideline, not a dumb network](12-david-clark-end-to-end/02-a-guideline-not-a-dumb-network.md)
+- [3. The goals, in priority order](12-david-clark-end-to-end/03-goals-in-priority-order.md)
+- [4. Fate-sharing](12-david-clark-end-to-end/04-fate-sharing.md)
+- [5. Types of service, and the split](12-david-clark-end-to-end/05-types-of-service-and-the-split.md)
+- [6. The reckoning](12-david-clark-end-to-end/06-the-reckoning.md)
+- [7. Modern echoes](12-david-clark-end-to-end/07-modern-echoes.md)
+- [8. Discussion and further reading](12-david-clark-end-to-end/08-discussion-and-reading.md)
