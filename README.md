@@ -61,6 +61,7 @@ Read these works together and they stop being about Erlang, or TCP, or Paxos. Th
 | 10 | Jerome Saltzer and Michael Schroeder | *The Protection of Information in Computer Systems* | Security design principles and protection mechanisms |
 | 11 | Vint Cerf and Bob Kahn | *A Protocol for Packet Network Intercommunication* | Internet architecture: dumb network, smart edges |
 | 12 | David Clark (with Saltzer and Reed) | *End-to-End Arguments* and *The Design Philosophy of the DARPA Internet Protocols* | The end-to-end principle, the internet's goals, and its reckoning |
+| 13 | Leslie Lamport | *The Part-Time Parliament* and *Paxos Made Simple* | Consensus: how unreliable processes agree on an ordered log |
 
 More seminars are planned. They get added to this index as each one clears review.
 

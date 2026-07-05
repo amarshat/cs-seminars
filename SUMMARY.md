@@ -139,3 +139,15 @@
 - [6. The reckoning](12-david-clark-end-to-end/06-the-reckoning.md)
 - [7. Modern echoes](12-david-clark-end-to-end/07-modern-echoes.md)
 - [8. Discussion and further reading](12-david-clark-end-to-end/08-discussion-and-reading.md)
+
+## 13. Leslie Lamport: Paxos
+
+- [Seminar overview](13-leslie-lamport-paxos/README.md)
+- [1. The consensus problem](13-leslie-lamport-paxos/01-the-consensus-problem.md)
+- [2. Majorities intersect](13-leslie-lamport-paxos/02-majorities-intersect.md)
+- [3. The Synod, and the safety trick](13-leslie-lamport-paxos/03-the-synod-and-the-safety-trick.md)
+- [4. Safety always, liveness sometimes](13-leslie-lamport-paxos/04-safety-always-liveness-sometimes.md)
+- [5. From one value to a log](13-leslie-lamport-paxos/05-from-one-value-to-a-log.md)
+- [6. The strangest famous paper](13-leslie-lamport-paxos/06-the-strangest-famous-paper.md)
+- [7. Modern echoes](13-leslie-lamport-paxos/07-modern-echoes.md)
+- [8. Discussion and further reading](13-leslie-lamport-paxos/08-discussion-and-reading.md)
