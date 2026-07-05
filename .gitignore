@@ -14,3 +14,7 @@ ignore/
 book/build/
 *.epub
 *.pdf
+
+# Internal build/publish runbooks. Kept local, not published to the public repo.
+book/README.md
+book/PUBLISH.md
