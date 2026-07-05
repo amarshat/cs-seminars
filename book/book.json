@@ -1,6 +1,6 @@
 {
-  "title": "CS-Seminars",
-  "description": "Reading the Classics of Computer Science, reconstructed for the systems we build today.",
+  "title": "Still Running",
+  "description": "How the classic papers of computer science explain the systems we build today. A CS-Seminars project.",
   "author": "Amar Akshat",
   "language": "en",
   "plugins": ["theme-default", "-sharing"],

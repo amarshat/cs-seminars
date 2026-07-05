@@ -1,97 +1,105 @@
 #!/usr/bin/env python3
 """Generate the Kindle cover (book/cover.png) with Pillow.
 
-KDP wants a portrait cover around 1600x2560. This draws a clean typographic
-cover: title, subtitle, a small supervision-tree motif, and the author. Edit the
-constants below to taste, then run:  python3 book/make_cover.py
+KDP wants a portrait cover around 1600x2560. This draws a bold typographic cover:
+the title "Still Running" over a small constellation of connected ideas (the
+book's through-line), with the subtitle and author. Edit the constants and run:
+python3 book/make_cover.py
 """
 import os
 
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1600, 2560
-INK = (16, 21, 28)
-PAPER = (244, 241, 234)
-GOLD = (214, 164, 65)
-DIM = (120, 110, 88)
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cover.png")
 
-TITLE = "CS-Seminars"
-SUBTITLE = "Reading the Classics of Computer Science"
-KICKER = "MARGIN NOTES ON THE FOUNDATIONAL PAPERS"
-AUTHOR = "Amar Akshat"
+TITLE = ("STILL", "RUNNING")
+SUB = "How the Classic Papers of Computer Science Explain the Systems We Build Today"
+KICKER = "A CS-SEMINARS BOOK"
+AUTHOR = "AMAR AKSHAT"
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "cover.png")
+BLACK = "/System/Library/Fonts/Supplemental/Arial Black.ttf"
+BOLD = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
+SERIF = "/System/Library/Fonts/NewYork.ttf"
+REG = "/System/Library/Fonts/Supplemental/Arial.ttf"
 
-SANS = [
-    "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
-    "/System/Library/Fonts/Helvetica.ttc",
-    "/Library/Fonts/Arial Bold.ttf",
-    "/System/Library/Fonts/SFNSDisplay.ttf",
-]
-SERIF = [
-    "/System/Library/Fonts/Supplemental/Georgia.ttf",
-    "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
-    "/System/Library/Fonts/Supplemental/Palatino.ttc",
-]
+GOLD = (240, 180, 40)
+PAPER = (245, 243, 236)
 
 
-def font(paths, size):
-    for p in paths:
+def font(path, size):
+    for p in (path, BOLD, REG):
         if os.path.exists(p):
             try:
                 return ImageFont.truetype(p, size)
             except Exception:
-                continue
+                pass
     return ImageFont.load_default()
 
 
-def center(draw, y, text, fnt, fill, spacing=0):
-    if spacing:
-        widths = [draw.textlength(c, font=fnt) for c in text]
-        total = sum(widths) + spacing * (len(text) - 1)
-        x = (W - total) / 2
-        for c, w in zip(text, widths):
-            draw.text((x, y), c, font=fnt, fill=fill)
-            x += w + spacing
+def center(d, y, text, fnt, fill, track=0):
+    if track:
+        ws = [d.textlength(c, font=fnt) for c in text]
+        x = (W - (sum(ws) + track * (len(text) - 1))) / 2
+        for c, w in zip(text, ws):
+            d.text((x, y), c, font=fnt, fill=fill)
+            x += w + track
     else:
-        w = draw.textlength(text, font=fnt)
-        draw.text(((W - w) / 2, y), text, font=fnt, fill=fill)
+        d.text(((W - d.textlength(text, font=fnt)) / 2, y), text, font=fnt, fill=fill)
+
+
+def wrap(d, text, fnt, maxw):
+    words, lines, cur = text.split(), [], ""
+    for wd in words:
+        t = (cur + " " + wd).strip()
+        if d.textlength(t, font=fnt) <= maxw:
+            cur = t
+        else:
+            lines.append(cur)
+            cur = wd
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def gradient(top, bot):
+    img = Image.new("RGB", (W, H))
+    px = img.load()
+    for y in range(H):
+        t = y / (H - 1)
+        c = tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3))
+        for x in range(W):
+            px[x, y] = c
+    return img
 
 
 def main():
-    img = Image.new("RGB", (W, H), INK)
+    img = gradient((26, 20, 64), (6, 8, 16))   # indigo to near-black
     d = ImageDraw.Draw(img)
 
-    # thin inset frame, manuscript feel
-    d.rectangle([70, 70, W - 70, H - 70], outline=GOLD, width=4)
+    center(d, 250, KICKER, font(BOLD, 40), GOLD, track=10)
+    center(d, 470, TITLE[0], font(BLACK, 240), PAPER)
+    center(d, 760, TITLE[1], font(BLACK, 240), PAPER)
+    d.line([(W / 2 - 300, 1080), (W / 2 + 300, 1080)], fill=GOLD, width=4)
+    for i, ln in enumerate(wrap(d, SUB, font(SERIF, 52), 1180)):
+        center(d, 1140 + i * 66, ln, font(SERIF, 52), (206, 210, 230))
 
-    center(d, 300, KICKER, font(SANS, 40), GOLD, spacing=8)
-    center(d, 470, TITLE, font(SANS, 200), PAPER)
-    center(d, 760, SUBTITLE, font(SERIF, 62), (210, 205, 194))
+    # constellation of connected ideas: the through-line
+    nodes = [
+        (300, 1500), (520, 1720), (760, 1560), (980, 1780), (1180, 1560),
+        (1320, 1820), (440, 1980), (700, 2020), (960, 2000), (1180, 2020),
+        (820, 1400), (560, 1420),
+    ]
+    edges = [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (0, 6), (1, 7),
+             (3, 8), (5, 9), (2, 10), (10, 4), (11, 0), (11, 2), (6, 7), (8, 9)]
+    for a, b in edges:
+        d.line([nodes[a], nodes[b]], fill=(70, 78, 120), width=3)
+    for i, (x, y) in enumerate(nodes):
+        r = 30 if i % 4 == 0 else 20
+        col = GOLD if i % 4 == 0 else (150, 170, 220)
+        d.ellipse([x - r, y - r, x + r, y + r], fill=col)
 
-    # supervision-tree motif: root, two supervisors, four workers
-    nodes = {
-        "r": (800, 1180),
-        "a": (600, 1420), "b": (1000, 1420),
-        "w1": (470, 1680), "w2": (700, 1680),
-        "w3": (900, 1680), "w4": (1130, 1680),
-    }
-    edges = [("r", "a"), ("r", "b"), ("a", "w1"), ("a", "w2"),
-             ("b", "w3"), ("b", "w4")]
-    for u, v in edges:
-        d.line([nodes[u], nodes[v]], fill=DIM, width=4)
-    for key, (x, y) in nodes.items():
-        rad = 34 if key == "r" else 24
-        d.ellipse([x - rad, y - rad, x + rad, y + rad], fill=GOLD, outline=INK, width=4)
-
-    # authors band: the through-line, shown small
-    band = "Armstrong  .  Hewitt  .  Hoare  .  Lamport  .  Liskov  .  Gray  .  and more"
-    center(d, 2050, band, font(SERIF, 40), (170, 165, 152))
-
-    d.line([(W / 2 - 140, 2300), (W / 2 + 140, 2300)], fill=GOLD, width=3)
-    center(d, 2360, AUTHOR, font(SANS, 66), PAPER)
-
+    center(d, 2360, AUTHOR, font(BOLD, 60), PAPER, track=6)
     img.save(OUT, "PNG")
     print("wrote %s (%dx%d)" % (OUT, W, H))
 

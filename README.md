@@ -1,6 +1,8 @@
-# CS-Seminars
+# Still Running
 
-**Modern graduate seminars on the classic papers of computer science.**
+**How the classic papers of computer science explain the systems we build today.**
+
+Modern graduate seminars on the foundational works of computer science, reconstructed for the systems we actually build. A CS-Seminars project.
 
 Some of the ideas that hold up your stack were written down decades ago. Logical clocks, the relational model, supervision trees, the end-to-end argument: the systems you ship this week are still arguments these papers started. But the papers themselves are hard to walk into. They assume you lived through the problem they were solving, and they were written for readers who already had.
 
@@ -41,7 +43,7 @@ Read these works together and they stop being about Erlang, or TCP, or Paxos. Th
 - Where should trust live?
 - How do you keep complexity survivable?
 
-CS-Seminars reads the classics as answers to those questions, then checks the answers against the systems we build now.
+*Still Running* reads the classics as answers to those questions, then checks the answers against the systems we build now.
 
 ## Seminars
 

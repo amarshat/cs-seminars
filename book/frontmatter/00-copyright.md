@@ -1,8 +1,8 @@
 # Copyright
 
-**CS-Seminars: Reading the Classics of Computer Science**
+**Still Running: How the Classic Papers of Computer Science Explain the Systems We Build Today**
 
-Copyright (c) 2026 Amar Akshat.
+A CS-Seminars project. Copyright (c) 2026 Amar Akshat.
 
 The original commentary, explanations, diagrams, and structure of this book are released under the Creative Commons Attribution 4.0 International License (CC BY 4.0). You are free to share and adapt the material for any purpose, including commercially, as long as you give appropriate credit.
 
