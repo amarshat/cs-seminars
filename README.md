@@ -55,6 +55,7 @@ CS-Seminars reads the classics as answers to those questions, then checks the an
 | 06 | Jim Gray | *The Transaction Concept: Virtues and Limitations* | Transactions and atomic commit |
 | 07 | Edgar F. Codd | *A Relational Model of Data for Large Shared Data Banks* | Data independence and the relational model |
 | 08 | Butler Lampson | *Hints for Computer System Design* | Design judgment: interfaces, simplicity, and hints |
+| 09 | David Parnas | *On the Criteria To Be Used in Decomposing Systems into Modules* | Information hiding and modular design |
 
 More seminars are planned. They get added to this index as each one clears review.
 

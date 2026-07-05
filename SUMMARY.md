@@ -91,3 +91,15 @@
 - [6. The hint](08-butler-lampson-hints-for-system-design/06-the-hint.md)
 - [7. End-to-end, logs, and atomic actions](08-butler-lampson-hints-for-system-design/07-end-to-end-logs-atomic-actions.md)
 - [8. Contradictions, and how to read it today](08-butler-lampson-hints-for-system-design/08-contradictions-and-reading-today.md)
+
+## 09. David Parnas: Information Hiding and Modular Design
+
+- [Seminar overview](09-david-parnas-information-hiding/README.md)
+- [1. The criterion nobody stated](09-david-parnas-information-hiding/01-the-criterion-nobody-stated.md)
+- [2. KWIC, and the obvious cut](09-david-parnas-information-hiding/02-kwic-and-the-obvious-cut.md)
+- [3. The same system, cut by secrets](09-david-parnas-information-hiding/03-the-same-system-cut-by-secrets.md)
+- [4. Which change ripples](09-david-parnas-information-hiding/04-which-change-ripples.md)
+- [5. What a secret is, and is not](09-david-parnas-information-hiding/05-what-a-secret-is.md)
+- [6. A module is not a subroutine](09-david-parnas-information-hiding/06-a-module-is-not-a-subroutine.md)
+- [7. Modern echoes](09-david-parnas-information-hiding/07-modern-echoes.md)
+- [8. Discussion and further reading](09-david-parnas-information-hiding/08-discussion-and-reading.md)
