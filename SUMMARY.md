@@ -103,3 +103,15 @@
 - [6. A module is not a subroutine](09-david-parnas-information-hiding/06-a-module-is-not-a-subroutine.md)
 - [7. Modern echoes](09-david-parnas-information-hiding/07-modern-echoes.md)
 - [8. Discussion and further reading](09-david-parnas-information-hiding/08-discussion-and-reading.md)
+
+## 10. Saltzer and Schroeder: The Protection of Information
+
+- [Seminar overview](10-saltzer-schroeder-protection/README.md)
+- [1. Why sharing needs a guard](10-saltzer-schroeder-protection/01-why-sharing-needs-a-guard.md)
+- [2. Mechanism, not policy](10-saltzer-schroeder-protection/02-mechanism-not-policy.md)
+- [3. Building the guard: four principles](10-saltzer-schroeder-protection/03-building-the-guard.md)
+- [4. Granting authority: four principles](10-saltzer-schroeder-protection/04-granting-authority.md)
+- [5. Capabilities and access control lists](10-saltzer-schroeder-protection/05-capabilities-and-acls.md)
+- [6. Confinement and the shared mechanism](10-saltzer-schroeder-protection/06-confinement-and-shared-mechanism.md)
+- [7. Modern echoes](10-saltzer-schroeder-protection/07-modern-echoes.md)
+- [8. Discussion and further reading](10-saltzer-schroeder-protection/08-discussion-and-reading.md)
