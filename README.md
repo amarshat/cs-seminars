@@ -57,6 +57,7 @@ CS-Seminars reads the classics as answers to those questions, then checks the an
 | 08 | Butler Lampson | *Hints for Computer System Design* | Design judgment: interfaces, simplicity, and hints |
 | 09 | David Parnas | *On the Criteria To Be Used in Decomposing Systems into Modules* | Information hiding and modular design |
 | 10 | Jerome Saltzer and Michael Schroeder | *The Protection of Information in Computer Systems* | Security design principles and protection mechanisms |
+| 11 | Vint Cerf and Bob Kahn | *A Protocol for Packet Network Intercommunication* | Internet architecture: dumb network, smart edges |
 
 More seminars are planned. They get added to this index as each one clears review.
 

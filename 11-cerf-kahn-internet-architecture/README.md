@@ -1,0 +1,39 @@
+# Reading Vint Cerf and Bob Kahn
+
+## *A Protocol for Packet Network Intercommunication*
+
+> Vinton G. Cerf and Robert E. Kahn, "A Protocol for Packet Network Intercommunication," IEEE Transactions on Communications, Volume COM-22, Number 5, May 1974, pages 637 to 648. Manuscript received November 5, 1973. The work was supported by the Advanced Research Projects Agency of the U.S. Department of Defense.
+
+By 1974 packet switching worked. The ARPANET had proven it, and other packet networks were arriving: radio networks, satellite networks, each built by different people for different conditions, each with its own addressing, its own packet sizes, its own idea of how reliable delivery should be. The question this paper answers is what happens when you want them to talk to each other. Not a bigger network of the same kind, but a network of networks, none of which was designed to cooperate and none of which their owners were willing to rebuild.
+
+The obvious answer, and the one the telephone world preferred, was to make the network smart: build reliability and connections into the switches, so that once a call is set up the network guarantees delivery. Cerf and Kahn went the other way, and that choice is the paper. They keep the networks dumb and independent, place a simple box called a gateway between each pair of them to pass packets across the boundary, and put all the hard work, reliability, ordering, flow control, the setup and teardown of connections, into a common program that runs in the hosts at the edges. The network loses packets, reorders them, corrupts them, and the hosts clean up after it. The bet is that a simple, unreliable core with intelligent edges will outrun a smart core every time, because it lets each network stay itself and lets the hosts evolve without asking anyone's permission.
+
+One thing to fix before reading, because the paper's own most famous term has drifted. In 1974, TCP is one thing, and it stands for Transmission Control Program, not Protocol. It is a single monolithic protocol that does addressing, routing help, reassembly, sequencing, retransmission, flow control, and connections all at once. The split into TCP for reliability and IP for addressing and routing, and the arrival of UDP alongside them, came later, decided in 1978 and standardized around 1981. Read the 1974 paper as the architecture, not the stack. The layered TCP/IP you know is its child, not its content.
+
+## Why this seminar, eleventh
+
+This is the first half of the internet-architecture arc. Cerf and Kahn draw the shape here: gateways between independent networks, a common host protocol, a connectionless core, reliability at the edges. The Clark seminar next explains the philosophy behind that shape and names the principle that justifies it, the end-to-end argument, which this paper embodies without stating. Read them as a pair, the blueprint and the reasoning.
+
+It also continues a thread the series has been pulling for several seminars. "Keep the core simple and put the intelligence at the edges" is the networking form of the instinct Saltzer and Schroeder applied to protection, where trust and checking belong at the edges, and of the end-to-end hint Lampson passed along. The assumption underneath the whole design, that the network will lose and reorder and corrupt your data and you must recover at the edge, is the same unreliability that Lamport built logical clocks against and Armstrong built supervision trees against. The internet is what you get when you take unreliable delivery as the ground truth and refuse to paper over it in the middle.
+
+## The four questions
+
+1. **What problem were they solving?** How to interconnect packet networks that were independently designed and independently owned, with different addressing, packet sizes, and reliability, so their hosts can share resources, without forcing every host to speak every network's protocol and without forcing the networks to become the same.
+2. **Why was the answer surprising?** Because it kept the network dumb. The prevailing instinct, especially in the telephone industry, was to put reliability and connection state inside the network. Cerf and Kahn put simple gateways between networks and pushed reliability out to a common program in the hosts, betting that a connectionless, unreliable core with smart edges would beat a smart core.
+3. **What survived?** The architecture, almost entirely: gateways between independent networks, a common host-to-host protocol, a connectionless core, and reliability at the edges. What changed is the packaging. The one monolithic Transmission Control Program was split into TCP and IP, and joined by UDP, between 1978 and 1981; the small 1974 address grew into IPv4 and then IPv6; in-network fragmentation gave way to path MTU discovery. The bet itself won.
+4. **How should a working engineer read it today?** As the blueprint for the internet's shape and the origin of "dumb network, smart edges." Read it knowing that its TCP is one program, not the TCP/IP stack, and that the argument which justifies pushing function to the edges is named in the seminar that follows, not this one.
+
+## Chapters
+
+1. [Networks that do not match](01-networks-that-do-not-match.md). The real problem: independently owned packet networks with different addressing, packet sizes, and reliability, and why making them uniform was never an option.
+2. [The gateway](02-the-gateway.md). A simple box between networks that routes and reformats but does as little as possible, and why keeping it dumb is the point. The ancestor of the router.
+3. [One program in the hosts](03-one-program-in-the-hosts.md). TCP as Transmission Control Program, the single monolithic protocol that carries the burden the network refuses.
+4. [Reliability at the edges](04-reliability-at-the-edges.md). Sequence numbers, acknowledgments, retransmission, and the end-to-end checksum the gateways never touch. The end-to-end bet, embodied.
+5. [Datagrams versus virtual circuits](05-datagrams-versus-virtual-circuits.md). The crux: where connection state and reliability live, and why the internet put them at the edge against the telephone world's smart network.
+6. [The split, and the honest scope](06-the-split-and-the-scope.md). What 1974 actually said, and how the one program became TCP, IP, and UDP, with the dates that keep the story straight.
+7. [Modern echoes](07-modern-echoes.md). The hourglass, BGP and autonomous systems, path MTU discovery, QUIC over UDP, and the middleboxes that eroded the pure end-to-end model.
+8. [Discussion and further reading](08-discussion-and-reading.md). The argument in one breath, questions to argue about, and where the series goes next.
+
+## A note on the source
+
+Quotations come from the 1974 IEEE Transactions on Communications paper. This seminar is careful about the traps that cluster around it. In 1974, TCP is a single Transmission Control Program, not the layered TCP-over-IP of today; the split into TCP and IP, and the addition of UDP, are later developments, and this seminar dates them rather than reading them back. The end-to-end argument is embodied here but not named; it is formalized by Saltzer, Reed, and Clark in 1984 and gets its own seminar next. The deepest decision, keeping the network connectionless and pushing reliability to the edges, is the datagram-versus-virtual-circuit choice, though those exact terms belong to the surrounding debate, the datagram to the CYCLADES work and virtual circuits to the later X.25 standard, rather than to this paper. The 1974 internetwork address is eight bits of network and sixteen of host, not IPv4, and the seminar does not backport address classes, CIDR, the OSI seven-layer model, or the IP hourglass metaphor, all of which came later. And a gateway in 1974 is the ancestor of the router; the seminar keeps the period word.
