@@ -41,7 +41,27 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.d1.outputs.page_url }}
     steps:
-      - id: deployment
+      # actions/deploy-pages occasionally fails with a transient
+      # "Deployment failed, try again later" from the Pages API. Auto-retry with
+      # backoff so a flake never surfaces as a failed run; only a genuine, repeated
+      # failure fails the job.
+      - name: Deploy to Pages (attempt 1)
+        id: d1
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Back off before retry
+        if: steps.d1.outcome == 'failure'
+        run: sleep 20
+      - name: Deploy to Pages (attempt 2)
+        id: d2
+        if: steps.d1.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Back off before final attempt
+        if: steps.d1.outcome == 'failure' && steps.d2.outcome == 'failure'
+        run: sleep 30
+      - name: Deploy to Pages (final attempt)
+        if: steps.d1.outcome == 'failure' && steps.d2.outcome == 'failure'
         uses: actions/deploy-pages@v4
