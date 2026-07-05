@@ -163,3 +163,15 @@
 - [6. Spanner II: TrueTime and commit-wait](14-dean-ghemawat-internet-scale-data/06-spanner-truetime-and-commit-wait.md)
 - [7. Convergence, and the CAP honesty](14-dean-ghemawat-internet-scale-data/07-convergence-and-cap.md)
 - [8. Discussion and further reading](14-dean-ghemawat-internet-scale-data/08-discussion-and-reading.md)
+
+## 15. Castro and Liskov: Practical Byzantine Fault Tolerance
+
+- [Seminar overview](15-castro-liskov-pbft/README.md)
+- [1. The assumption every protocol made](15-castro-liskov-pbft/01-crash-versus-byzantine.md)
+- [2. The Byzantine Generals, and why it was impractical](15-castro-liskov-pbft/02-byzantine-generals.md)
+- [3. Why 3f+1](15-castro-liskov-pbft/03-why-3f-plus-1.md)
+- [4. The three-phase protocol](15-castro-liskov-pbft/04-the-three-phase-protocol.md)
+- [5. When the primary lies: view changes](15-castro-liskov-pbft/05-view-changes.md)
+- [6. Practical: cryptography and the 3 percent](15-castro-liskov-pbft/06-practical-cryptography.md)
+- [7. The blockchain lineage](15-castro-liskov-pbft/07-the-blockchain-lineage.md)
+- [8. The finale: trust, and the end of the book](15-castro-liskov-pbft/08-the-finale.md)
