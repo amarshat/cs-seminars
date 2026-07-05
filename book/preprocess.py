@@ -31,6 +31,7 @@ FRONT = [
     os.path.join(ROOT, "book", "frontmatter", "01-preface.md"),
 ]
 BACK = [
+    os.path.join(ROOT, "book", "backmatter", "97-sources.md"),
     os.path.join(ROOT, "book", "backmatter", "98-about.md"),
 ]
 MMDC = shutil.which("mmdc")
