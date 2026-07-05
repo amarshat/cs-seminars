@@ -21,3 +21,6 @@ book/PUBLISH.md
 
 # Web (Honkit) staged source and rendered output, produced by book/web-render.py
 book/web-src/
+
+# Local marketing/design assets, versioned in the private workshop repo
+book-prep/
