@@ -28,6 +28,8 @@ Start with the paper. It is short, strange, and studded with Lewis Carroll epigr
 
 - **Hewitt, Bishop, and Steiger, "A Universal Modular ACTOR Formalism for Artificial Intelligence" (IJCAI-73).** The source. Read it for the ambition and for how much of the later model is already implicit here, and how much is not.
 
+- **Hewitt, "Viewing Control Structures as Patterns of Passing Messages" (MIT AI Memo 410, 1976; Artificial Intelligence 8(3), 1977).** The follow-up that states message-passing as a universal control primitive most sharply. It is the source of that quote in chapter 3.
+
 - **Gul Agha, *Actors: A Model of Concurrent Computation in Distributed Systems* (MIT Press, 1986).** The reformulation that produced the actor most people mean, built on the create, send, become primitives. If you only know actors from a framework, this is the book that framework is implementing.
 
 - **Irene Greif, *Semantics of Communicating Parallel Processes* (MIT PhD, 1975), and Will Clinger, *Foundations of Actor Semantics* (MIT PhD, 1981).** The formal backbone. Greif turned the event-and-history sketch into a semantics; Clinger nailed down unbounded nondeterminism.

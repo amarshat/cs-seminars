@@ -44,7 +44,7 @@ Start with the paper, both halves, then follow the two threads it opens.
 
 Gray's transaction is the correctness half of the story, and it leaves one debt that the rest of the series pays.
 
-- The atomic commit of chapter 4 blocks when its coordinator fails, and Gray's own two-phase commit cannot fix that alone. Making agreement survive the failure of the agreer is the **consensus** problem, and it is **Lamport's Paxos**, a later seminar here. The user of this series was right to see the ordering thread, the replication thread, and the 2PC-blocking thread all pointing at the same destination: a protocol for irrevocable agreement among unreliable machines.
+- The atomic commit of chapter 4 blocks when its coordinator fails, and Gray's own two-phase commit cannot fix that alone. Making agreement survive the failure of the agreer is the **consensus** problem, and it is **Lamport's Paxos**, a later seminar here. Read this way, the ordering thread, the replication thread, and the 2PC-blocking thread all point at one destination: a protocol for irrevocable agreement among unreliable machines.
 - The previous seminar, **Liskov's Viewstamped Replication**, was in its original form replicating a transaction system running Gray's commit protocol; read the two together and the transaction layer and the replication layer click into place.
 - And the reliability framing that opened this paper, fail-fast modules, process pairs, a reliable system from unreliable parts, is the same lineage as **Armstrong's** failure-oriented architecture. The transaction is to Gray's process pairs what OTP is to Armstrong's raw processes: the reusable abstraction that lets ordinary programmers inherit fault tolerance they did not write.
 

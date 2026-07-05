@@ -4,7 +4,7 @@
 
 Once you know VR, you start seeing it everywhere: a leader ordering a log, a majority acknowledging, a leader-change protocol that preserves committed entries. Raft looks like VR. Multi-Paxos looks like VR. ZooKeeper's Zab looks like VR. The danger is to collapse them all together and declare them the same thing, or to build a family tree with arrows of descent that the history does not support. This chapter sorts the relatives precisely: which converged independently, which descended from which, and where each one genuinely differs. Getting the arrows right matters, because the most famous relationship here, VR and Paxos, is routinely told wrong.
 
-## Paxos: the convergent twin, not the parent
+## Paxos: the sibling, not the parent
 
 Paxos and VR are the same era and the same shape, and neither came from the other. The 2012 report is unambiguous: "VR was originally developed in the 1980s, at about the same time as Paxos, but without knowledge of that work." Lamport's Paxos, in "The Part-Time Parliament," was written around 1990 and published in 1998; Oki and Liskov's VR was published in 1988. They are contemporaneous and independent, two teams arriving at leader-based, majority-quorum agreement without talking to each other, which is the same pattern of convergence this series keeps finding, and the same signal that the structure is forced by the problem rather than invented by one person.
 

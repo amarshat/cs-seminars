@@ -22,7 +22,7 @@ flowchart TB
 
 The way out is obvious and its limit is the point. Elect a single distinguished proposer, a leader, and let it be the only one that issues proposals. With just one proposer, there is no one to duel with; it picks a high enough number, reaches a majority, and its value is chosen. Progress restored.
 
-But now look hard at "elect a single leader." Electing one leader reliably is itself a consensus problem, in the same asynchronous world, and it runs into the same wall. Lamport names the wall directly: "The famous result of Fischer, Lynch, and Patterson implies that a reliable algorithm for electing a proposer must use either randomness or real time, for example, by using timeouts. However, safety is ensured regardless of the success or failure of the election."
+But now look hard at "elect a single leader." Electing one leader reliably is itself a consensus problem, in the same asynchronous world, and it runs into the same wall. Lamport names the wall directly: "The famous result of Fischer, Lynch, and Patterson [sic] implies that a reliable algorithm for electing a proposer must use either randomness or real time, for example, by using timeouts. However, safety is ensured regardless of the success or failure of the election."
 
 Read that twice, because it is the sentence the reputation of Paxos should rest on. Safety is unconditional. Liveness is conditional, and the condition is that you can reliably pick one leader, which pure asynchrony cannot promise.
 

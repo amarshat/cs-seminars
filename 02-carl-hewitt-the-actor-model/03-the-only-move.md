@@ -14,7 +14,7 @@ The `goto` is the clean example. When you jump to a label, control moves but no 
 
 ## Hewitt's move: calling is sending, and returning is sending back
 
-Replace the toolkit with one act. To invoke an actor, you send it a message. That is the universal control primitive, and Hewitt means universal literally: "Sending messages between actors is a universal control primitive in the sense that control operations such as function calls, iteration, coroutine invocations, resource seizures, scheduling, synchronization ... are special cases."
+Replace the toolkit with one act. To invoke an actor, you send it a message. That is the universal control primitive, and Hewitt means universal literally. He put it most sharply a few years after the 1973 paper, in "Viewing Control Structures as Patterns of Passing Messages" (1977): "Sending messages between actors is a universal control primitive in the sense that control operations such as function calls, iteration, coroutine invocations, resource seizures, scheduling, synchronization ... are special cases." The 1973 paper is already reaching for this; the crisp formulation is the follow-up.
 
 The move that makes this work, and the one most worth slowing down on, is what happens to the return. In an ordinary language, return is built into the call: a function call pushes a frame, the function runs, and control falls back to the caller through the stack. Hewitt unbundles this. When you send a message, you also hand along a continuation, which is simply another actor: the one to send the answer to. Returning a value is not a special operation at all. It is sending a message to the continuation.
 

@@ -2,7 +2,7 @@
 
 ## The threads meet
 
-Spanner is the seminar where the book's distributed-data threads stop running in parallel and tie together. Look at what it is made of. Its query language and schematized tables descend from Codd's relational model, the thing Bigtable had thrown overboard. Its cross-shard transactions are Gray's two-phase commit. The participants in that commit are replicated by Paxos, the consensus algorithm from the Lamport seminar, which is the same crash-fault-tolerant replication Liskov's Viewstamped Replication reached from the systems side. And its global ordering rests on synchronized physical clocks, the quiet half of Lamport's earliest seminar. Even one layer down, Bigtable's coordination runs on Chubby, which is Paxos in production. Spanner did not invent a new theory of distributed data. It composed five older ones.
+Spanner is the seminar where the book's distributed-data threads stop running in parallel and tie together. Look at what it is made of. Its query language and schematized tables descend from Codd's relational model, the thing Bigtable had thrown overboard. Its cross-shard transactions are Gray's two-phase commit. The participants in that commit are replicated by Paxos, the consensus algorithm from Lamport's Paxos seminar, which is the same crash-fault-tolerant replication Liskov's Viewstamped Replication reached from the systems side. And its global ordering rests on synchronized physical clocks, the quiet half of Lamport's earliest seminar. Even one layer down, Bigtable's coordination runs on Chubby, which is Paxos in production. Spanner did not invent a new theory of distributed data. It composed five older ones.
 
 ```mermaid
 flowchart TB

@@ -2,7 +2,7 @@
 
 ## The problem: everyone needs to agree on one thing
 
-The previous chapter ended on a question Bigtable refused to answer itself: who decides which tablet server owns which tablet, how does the system ensure there is exactly one master, and how does anyone find that master when servers keep dying? These are not storage questions. They are agreement questions, the consensus problem of the Lamport seminar, and they recur in every distributed system Google runs. GFS needs to know its master. MapReduce needs to track workers. Bigtable needs a single master and a live map of its servers.
+The previous chapter ended on a question Bigtable refused to answer itself: who decides which tablet server owns which tablet, how does the system ensure there is exactly one master, and how does anyone find that master when servers keep dying? These are not storage questions. They are agreement questions, the consensus problem of Lamport's Paxos seminar, and they recur in every distributed system Google runs. GFS needs to know its master. MapReduce needs to track workers. Bigtable needs a single master and a live map of its servers.
 
 The tempting answers are all quietly broken. A static config file naming the master cannot survive that master failing. A homegrown heartbeat that promotes a backup will, under a network partition, promote a second master while the first still thinks it is in charge, and now two masters issue conflicting decisions to the same data. That is split brain, and it corrupts. The correct fix is real consensus, but the consensus seminar spent a chapter on how hard Paxos is to implement correctly, and the last thing you want is every system at Google embedding its own subtly wrong Paxos.
 

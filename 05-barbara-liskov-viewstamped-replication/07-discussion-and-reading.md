@@ -36,7 +36,7 @@ Read the 2012 report first for the clean protocol, then the 1988 paper for the o
 
 - **Liskov, "From Viewstamped Replication to Byzantine Fault Tolerance" (2010).** Liskov's own account of the lineage from VR to PBFT, and the bridge to the Byzantine sequel.
 
-- **Schneider, "Implementing Fault-Tolerant Services Using the State Machine Approach: A Tutorial" (1990).** The general framework VR is a concrete instance of. Read it alongside the Lamport seminar to see the pattern named and generalized.
+- **Schneider, "Implementing Fault-Tolerant Services Using the State Machine Approach: A Tutorial" (1990).** The general framework VR is a concrete instance of. Read it alongside Lamport's clocks seminar to see the pattern named and generalized.
 
 ## Where the series goes next
 

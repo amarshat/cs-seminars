@@ -4,7 +4,9 @@ Some of the ideas that hold up your stack were written down decades ago. Logical
 
 This book closes that gap.
 
-The name borrows from *scholia*, the explanatory notes that medieval scribes wrote in the margins of classical texts so the next reader could follow the argument. Each seminar here is a margin note on a foundational work of computer science: a chapter-by-chapter reading that reconstructs what the author was actually thinking, puts it back in its own time, and then asks the honest question. Does this still hold up, and where?
+The title is a claim, and it has two edges. These papers describe machinery that is still running: not history, but the live infrastructure your systems sit on right now. Logical clocks order events inside databases in production today, supervision trees restart your containers, the relational model still quietly runs the world's data. And the ideas are still running too, still valid, still executing, resurfacing under new names decade after decade. This book reads the classics as descriptions of things that never stopped.
+
+Each seminar is a margin note in the old sense, a *scholion*, the kind of explanatory note scribes once wrote alongside a classical text so the next reader could follow the argument. It reconstructs what the author was actually thinking, puts it back in its own time, and then asks the honest question. Does this still hold up, and where?
 
 Every seminar works through four questions:
 
