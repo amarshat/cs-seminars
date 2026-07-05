@@ -4,6 +4,8 @@
 
 Modern graduate seminars on the foundational works of computer science, reconstructed for the systems we actually build. A CS-Seminars project.
 
+**[Download the free EPUB](https://github.com/amarshat/cs-seminars/releases/latest/download/still-running.epub)** for Kindle, Apple Books, or any e-reader, or read the seminars online below. Free, under a Creative Commons license.
+
 Some of the ideas that hold up your stack were written down decades ago. Logical clocks, the relational model, supervision trees, the end-to-end argument: the systems you ship this week are still arguments these papers started. But the papers themselves are hard to walk into. They assume you lived through the problem they were solving, and they were written for readers who already had.
 
 This project closes that gap.
