@@ -1,0 +1,12 @@
+{
+  "title": "CS-Seminars",
+  "description": "Reading the Classics of Computer Science, reconstructed for the systems we build today.",
+  "author": "Amar Akshat",
+  "language": "en",
+  "plugins": ["theme-default", "-sharing"],
+  "pluginsConfig": {
+    "theme-default": {
+      "showLevel": false
+    }
+  }
+}

@@ -18,3 +18,6 @@ book/build/
 # Internal build/publish runbooks. Kept local, not published to the public repo.
 book/README.md
 book/PUBLISH.md
+
+# Web (Honkit) staged source and rendered output, produced by book/web-render.py
+book/web-src/
