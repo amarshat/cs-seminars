@@ -62,6 +62,7 @@ Read these works together and they stop being about Erlang, or TCP, or Paxos. Th
 | 11 | Vint Cerf and Bob Kahn | *A Protocol for Packet Network Intercommunication* | Internet architecture: dumb network, smart edges |
 | 12 | David Clark (with Saltzer and Reed) | *End-to-End Arguments* and *The Design Philosophy of the DARPA Internet Protocols* | The end-to-end principle, the internet's goals, and its reckoning |
 | 13 | Leslie Lamport | *The Part-Time Parliament* and *Paxos Made Simple* | Consensus: how unreliable processes agree on an ordered log |
+| 14 | Jeff Dean and Sanjay Ghemawat (and teams) | *MapReduce*, *Bigtable*, and *Spanner* | Internet-scale data: the pendulum from relational to NoSQL and back |
 
 More seminars are planned. They get added to this index as each one clears review.
 

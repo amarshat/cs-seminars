@@ -151,3 +151,15 @@
 - [6. The strangest famous paper](13-leslie-lamport-paxos/06-the-strangest-famous-paper.md)
 - [7. Modern echoes](13-leslie-lamport-paxos/07-modern-echoes.md)
 - [8. Discussion and further reading](13-leslie-lamport-paxos/08-discussion-and-reading.md)
+
+## 14. Dean and Ghemawat: Internet-Scale Data
+
+- [Seminar overview](14-dean-ghemawat-internet-scale-data/README.md)
+- [1. The arc and the pendulum](14-dean-ghemawat-internet-scale-data/01-the-arc-and-the-pendulum.md)
+- [2. MapReduce: fault tolerance by re-execution](14-dean-ghemawat-internet-scale-data/02-mapreduce-re-execution.md)
+- [3. Bigtable: the sparse sorted map](14-dean-ghemawat-internet-scale-data/03-bigtable-the-sorted-map.md)
+- [4. Chubby: Paxos in production](14-dean-ghemawat-internet-scale-data/04-chubby-paxos-in-production.md)
+- [5. Spanner I: transactions over Paxos groups](14-dean-ghemawat-internet-scale-data/05-spanner-transactions-over-paxos.md)
+- [6. Spanner II: TrueTime and commit-wait](14-dean-ghemawat-internet-scale-data/06-spanner-truetime-and-commit-wait.md)
+- [7. Convergence, and the CAP honesty](14-dean-ghemawat-internet-scale-data/07-convergence-and-cap.md)
+- [8. Discussion and further reading](14-dean-ghemawat-internet-scale-data/08-discussion-and-reading.md)
