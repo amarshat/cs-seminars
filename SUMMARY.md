@@ -1,6 +1,6 @@
 # Summary
 
-- [CS-Seminars](README.md)
+- [Introduction](README.md)
 
 ## 01. Joe Armstrong: Failure-Oriented Architecture
 
