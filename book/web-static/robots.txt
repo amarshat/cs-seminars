@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amarshat.github.io/cs-seminars/sitemap.xml
